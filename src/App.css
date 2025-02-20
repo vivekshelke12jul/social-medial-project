@@ -23,19 +23,19 @@
 
 .home-container {
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 20% 55% 25%;
   height: 100vh;
   box-sizing: border-box;
 }
 
 .sidebar-item {
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .mid-item {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }   
 
 .right-item {
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
