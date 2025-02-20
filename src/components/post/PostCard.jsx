@@ -15,7 +15,7 @@ const PostCard = () => {
     <Card>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="vegetation">
               R
           </Avatar>
           }
@@ -38,6 +38,7 @@ const PostCard = () => {
           This is a rare mushroom.
         </Typography>
       </CardContent>
+      
       <CardActions className='justify-between' disableSpacing>
         <div>
           <IconButton>

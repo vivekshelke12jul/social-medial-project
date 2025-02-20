@@ -21,7 +21,7 @@ const MiddlePart = () => {
     <div className="px-20">
       <section className="p-5 flex justify-center items-center rounded-b-md">
 
-        <div className="flex flex-col justify-center items-center mr-4 cursor-pointer">
+        <div className="flex flex-col items-center mr-4 cursor-pointer">
           <Avatar sx={{ width: "5rem", height: "5rem" }}>
             <AddIcon sx={{ fontSize: "3rem" }}/>
           </Avatar>

@@ -1,39 +1,47 @@
-import React from 'react'
+import React from "react";
 
-import { Grid2 } from '@mui/material'
-import { Routes, Route } from 'react-router-dom'
+import Grid from "@mui/material/Grid2";
+import { useLocation, Routes, Route } from "react-router-dom";
 
-import Sidebar from '../../components/sidebar/Sidebar'
-import MiddlePart from '../../components/middlePart/MiddlePart'
-import Reels from '../../components/reels/Reels'
-import CreateReelsForm from '../../components/reels/CreateReelsForm'
-import Profile from '../../pages/profile/Profile'
-import HomeRight from '../../components/homeRight/HomeRight'
+import Sidebar from "../../components/sidebar/Sidebar";
+import MiddlePart from "../../components/middlePart/MiddlePart";
+import Reels from "../../components/reels/Reels";
+import CreateReelsForm from "../../components/reels/CreateReelsForm";
+import Profile from "../../pages/profile/Profile";
+import HomeRight from "../../components/homeRight/HomeRight";
 const HomePage = () => {
+  const location = useLocation();
+  const lgGridSize = location.pathname === "/" ? 6 : 9;
   return (
-    <div className="home-container px-20 h-screen w-screen">
+    <div className="px-20">
+      <Grid container spacing={0}>
+        <Grid size={{ xs: 0, lg: 3 }}>
+          <div className="sticky top-0">
+            <Sidebar />
+          </div>
+        </Grid>
 
-      <div className="sidebar-item sticky top-0">
-        <Sidebar/>
-      </div>
+        <Grid
+          className="px-5 flex justify-center"
+          size={{ xs: 12, lg: lgGridSize }}
+        >
+          <Routes>
+            <Route path="/" element={<MiddlePart />}/>
+            <Route path="/reels" element={<Reels />}/>
+            <Route path="/create-reels" element={<CreateReelsForm />}/>
+            <Route path="/profile/:id" element={<Profile />}/>
+          </Routes>
 
-      <div className="mid-item">
+        </Grid>
 
-        <Routes>
-          <Route path="/" element={<MiddlePart />}/>
-          <Route path="/reels" element={<Reels />}/>
-          <Route path="/create-reels" element={<CreateReelsForm />}/>
-          <Route path="/profile/:id" element={<Profile />}/>
-        </Routes>
-
-      </div>
-
-      <div className="right-item sticky top-0 w-full">
-        <HomeRight/>
-      </div>
-
+        <Grid className='relative' size={{lg: 3}}>
+          <div className="sticky top-0 w-full">
+            <HomeRight />
+          </div>
+        </Grid>
+      </Grid>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

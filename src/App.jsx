@@ -7,13 +7,11 @@ function App() {
 
   return (
     <div>
-      {/* <Routes>
+      <Routes>
         <Route path="/*" element={<HomePage />} />
         <Route path="/message" element={<Message />} />
         <Route path="/*" element={<Authentication />} />
-      </Routes> */}
-
-      <Authentication />
+      </Routes>
     </div>
   )
 }
