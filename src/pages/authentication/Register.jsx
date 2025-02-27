@@ -23,7 +23,7 @@ const Register = () => {
 
   const handleSubmit = (values) => {
     values.gender = gender;
-    console.log(values);
+    console.log("in register.jsx",values);
     dispatch(registerUserAction({data: values}));
   };
 
@@ -122,7 +122,7 @@ const Register = () => {
           color="primary"
           fullWidth
           >
-          Login
+          Register
         </Button>
       </Form>
     </Formik>

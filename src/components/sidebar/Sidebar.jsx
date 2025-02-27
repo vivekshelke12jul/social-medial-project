@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { navigationMenu } from "./SidebarNavigation";
 import Divider from "@mui/material/Divider";
 import { Avatar, Card } from "@mui/material";
@@ -8,6 +10,8 @@ import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const {auth} = useSelector((state) => state);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -16,6 +20,14 @@ const Sidebar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleNavigate = (item)=>{
+    console.log(item.title)
+    if(item.title === 'Profile'){
+      navigate(`/profile/${auth.user?.id}`)
+    }else{
+      navigate(item.path)
+    }
+  }
 
   return (
     <Card className="card h-screen flex flex-col justify-between py-5">
@@ -26,7 +38,7 @@ const Sidebar = () => {
 
         <div className="space-y-8">
           {navigationMenu.map((item) => (
-            <div className="flex space-x-3 items-center cursor-pointer">
+            <div onClick={()=>handleNavigate(item)} className="flex space-x-3 items-center cursor-pointer">
               {item.icon}
               <p className="text-xl">{item.title}</p>
             </div>
@@ -44,8 +56,8 @@ const Sidebar = () => {
               alt="vivek"
             />
             <div>
-              <p className="font-bold">vivek</p>
-              <p className="opacity-70">@vivek12jul</p>
+              <p className="font-bold">{auth.user?.firstName}</p>
+              <p className="opacity-70">@{auth.user?.firstName}</p>
             </div>
           </div>
           <Button

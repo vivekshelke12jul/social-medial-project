@@ -10,7 +10,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 
 import React from 'react'
 
-const PostCard = () => {
+const PostCard = ({item}) => {
   return (
     <Card>
       <CardHeader
@@ -24,18 +24,18 @@ const PostCard = () => {
               <MoreVertIcon />
           </IconButton>
         }
-        title="Vivek"
-        subheader="@Vivek12jul"
+        title={item.user.firstName}
+        subheader={`@${item.user.firstName}`}
       />
       <CardMedia
         component="img"
         height="194"
-        image="https://cdn.pixabay.com/photo/2017/04/06/15/26/amanita-kills-fly-2208562_1280.jpg"
+        image={item.image}
         alt="mushroom"
       />
       <CardContent>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          This is a rare mushroom.
+          {item.caption}
         </Typography>
       </CardContent>
       
