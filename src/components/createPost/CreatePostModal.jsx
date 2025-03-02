@@ -35,21 +35,28 @@ const CreatePostModal = ({ open, handleClose }) => {
 
   const handleSelectImage = async (event) => {
     setIsLoading(true);
+
     setSelectedVideo("");
+    formik.setFieldValue("video", "");
+
     const imageUrl = await uploadToCloudinary(event.target.files[0], "image")
     setSelectedImage(imageUrl);
-    setIsLoading(false);
     formik.setFieldValue("image", imageUrl);
+    
+    setIsLoading(false);
   };
 
   const handleSelectVideo = async (event) => {  
     setIsLoading(true);
+
     setSelectedImage("");
+    formik.setFieldValue("image", "");
+
     const videoUrl = await uploadToCloudinary(event.target.files[0], "video");
     setSelectedVideo(videoUrl);
     formik.setFieldValue("video", videoUrl);
+
     setIsLoading(false);
-    formik.setFieldValue("video", videoUrl);
   };
   
   const formik = useFormik({

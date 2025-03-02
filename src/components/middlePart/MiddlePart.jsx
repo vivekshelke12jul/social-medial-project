@@ -29,7 +29,7 @@ const MiddlePart = () => {
 
   useEffect(() => { 
     dispatch(getAllPostsAction());
-  }, []);
+  }, [post.comment, post.like]);
 
   return (
     <div className="px-20">
@@ -55,7 +55,7 @@ const MiddlePart = () => {
             type="text" 
           />
         </div>
-        <div className="flex justify-center space-x-9 mt-5">
+        <div className="flex justify-center space-x-9 mt-5 border">
 
           <div className="flex items-center">
             <IconButton color="primary" onClick={handleOpenCreatePostModal}>
